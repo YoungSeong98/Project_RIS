@@ -28,20 +28,20 @@
     
 	<!-- Launch Motor Driver(MD200T) -->
 	<node pkg="md" type="md_robot_node" name="md_robot_node" output="screen">
-        <param name = "use_MDUI"                    value = "0"/>       <!-- 0: not use MDUI, 1: use MDUI -->
-    	<param name = "wheel_radius"                value = "0.0935"/>  <!-- unit: meter -->
-    	<param name = "wheel_length"                value = "0.217"/>   <!-- unit: meter -->
-    	<param name = "motor_pole"                  value = "10"/> 
-    	<param name = "reduction"                   value = "4.33"/> 	<!-- Reduction Ratio : 1/4.33 -->
-    	<param name = "reverse_direction"           value = "0"/>       <!-- 0: forward, 1: reverse -->
-    	<param name = "maxrpm"                      value = "1000"/>    <!-- unit: RPM -->
-    	<param name = "motor_posi"                  value = "1"/>       <!-- motor pisition 0: hall sensor, 1: encoder -->
-    	<param name = "encoder_PPR"                 value = "4096"/>    <!-- if use encoder position, encoder PPR -->
-    	<param name = "position_proportion_gain"    value = "20"/>      <!-- reference PID 203(PID_GAIN) -->
-    	<param name = "speed_proportion_gain"       value = "50"/>      <!-- reference PID 203(PID_GAIN) -->
-    	<param name = "integral_gain"               value = "1800"/>    <!-- reference PID 203(PID_GAIN) -->
-    	<param name = "slow_start"                  value = "300"/>     <!-- unit: RPM -->
-    	<param name = "slow_down"                   value = "300"/>     <!-- unit: RPM -->
+    <param name = "use_MDUI"                    value = "0"/>       <!-- 0: not use MDUI, 1: use MDUI -->
+    <param name = "wheel_radius"                value = "0.0935"/>  <!-- unit: meter -->
+    <param name = "wheel_length"                value = "0.217"/>   <!-- unit: meter -->
+    <param name = "motor_pole"                  value = "10"/> 
+    <param name = "reduction"                   value = "4.33"/> 	<!-- Reduction Ratio : 1/4.33 -->
+    <param name = "reverse_direction"           value = "0"/>       <!-- 0: forward, 1: reverse -->
+    <param name = "maxrpm"                      value = "1000"/>    <!-- unit: RPM -->
+    <param name = "motor_posi"                  value = "1"/>       <!-- motor pisition 0: hall sensor, 1: encoder -->
+    <param name = "encoder_PPR"                 value = "4096"/>    <!-- if use encoder position, encoder PPR -->
+    <param name = "position_proportion_gain"    value = "20"/>      <!-- reference PID 203(PID_GAIN) -->
+    <param name = "speed_proportion_gain"       value = "50"/>      <!-- reference PID 203(PID_GAIN) -->
+    <param name = "integral_gain"               value = "1800"/>    <!-- reference PID 203(PID_GAIN) -->
+    <param name = "slow_start"                  value = "300"/>     <!-- unit: RPM -->
+    <param name = "slow_down"                   value = "300"/>     <!-- unit: RPM -->
 	</node>
     
 	<!-- Initial Pose and Goal Publisher -->
@@ -53,13 +53,13 @@
 	<!-- Subscribe: /initialpose, /move_base_simple/goal -->
 	<!-- Publish: /initial_2d, /goal_2d --> 
 	<!-- Launch rviz_click_to_2d node -->
-	<node pkg="localization_data_pub" type="rviz_click_to_2d" name="rviz_click_to_2d">
+	<node pkg="localization_data" type="rviz_click_to_2d" name="rviz_click_to_2d">
 	</node>
     
 	<!-- Wheel Odometry Publisher -->
 	<!-- Subscribe: /right_ticks, /left_ticks, /initial_2d -->
 	<!-- Publish: /odom_data_euler, /odom_data_quat -->
-	<node pkg="localization_data_pub" type="ekf_odom_pub" name="ekf_odom_pub">
+	<node pkg="localization_data" type="ekf_odom_pub" name="ekf_odom_pub">
 	</node>
 
 	<!-- Extended Kalman Filter from robot_pose_ekf Node-->
@@ -96,11 +96,11 @@
 	<!-- Subscribe: /move_base_simple/goal -->
 	<!-- Publish: /cmd_vel -->
 	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    	<rosparam file="$(find navstack_pub)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
-    	<rosparam file="$(find navstack_pub)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
-    	<rosparam file="$(find navstack_pub)/param/local_costmap_params.yaml" command="load" ns="local_costmap"/>
-    	<rosparam file="$(find navstack_pub)/param/global_costmap_params.yaml" command="load" ns="global_costmap"/>
-    	<rosparam file="$(find navstack_pub)/param/base_local_planner_params.yaml" command="load"/>
+    	<rosparam file="$(find navstack)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    	<rosparam file="$(find navstack)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    	<rosparam file="$(find navstack)/param/local_costmap_params.yaml" command="load" ns="local_costmap"/>
+    	<rosparam file="$(find navstack)/param/global_costmap_params.yaml" command="load" ns="global_costmap"/>
+    	<rosparam file="$(find navstack)/param/base_local_planner_params.yaml" command="load"/>
   </node>
 	
 </launch>
