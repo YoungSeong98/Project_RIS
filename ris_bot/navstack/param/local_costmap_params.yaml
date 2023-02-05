@@ -2,7 +2,7 @@ local_costmap:
   update_frequency: 30.0
   publish_frequency: 30.0
   transform_tolerance: 0.2
-  static_map: false		# costmap을 초기화 할 때 static map 사용 여부를 결정
+  static_map: false    # costmap을 초기화 할 때 static map 사용 여부를 결정
   rolling_window: true
   resolution: 0.1
   inflation_radius: 0.1
