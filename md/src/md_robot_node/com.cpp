@@ -23,9 +23,9 @@ extern int CalRobotPoseFromPos(PID_PNT_MAIN_DATA_t *pData);
 extern void PubRobotPose(void);
 
 //////////////////////////////////////////////////////////////////////////
-//changed by sehun
-extern int CalTicks(PID_PNT_MAIN_DATA_t *pData);
-extern void PublishTicks(void);
+// Import Functions from main.cpp and robot.cpp
+extern int CalTicks(PID_PNT_MAIN_DATA_t *pData);    // From robot.cpp
+extern void PublishTicks(void);                     // From main.cpp
 //////////////////////////////////////////////////////////////////////////
 
 //Initialize serial communication in ROS
