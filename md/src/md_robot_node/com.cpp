@@ -147,9 +147,9 @@ int MdReceiveProc(void) //save the identified serial data to defined variable ac
 
                 PubRobotPose();
                 ////////////////////////
-                //changed by sehun
-                CalTicks(&curr_pid_pnt_main_data);
-                PublishTicks();
+                // Import Functions from 
+                CalTicks(&curr_pid_pnt_main_data);  // From robot.cpp
+                PublishTicks();                     // From main.cpp
                 ////////////////////////////
             }
             break;
