@@ -414,14 +414,13 @@ int main(int argc, char** argv)
 
     ros::Subscriber keyboard_sub = nh.subscribe("cmd_vel", 10, cmdVelCallBack);
     ros::Subscriber reset_odom_sub = nh.subscribe("reset_odom", 10, resetOdomCallBack);              //Subscriber declaration.
-    ros::Subscriber reset_alarm_sub = nh.subscribe("reset_alarm", 10, resetAlarmCallBack);              //Subscriber declaration.
+    ros::Subscriber reset_alarm_sub = nh.subscribe("reset_alarm", 10, resetAlarmCallBack);           //Subscriber declaration.
 
     robot_pose_pub = nh.advertise<md::Pose>("robot_pose", 10);
 /////////////////////////////////////////////////////////////////////////////////////
-//changed by sehun
+// Declare left and right motor`s tick pulishers
     rightPub = nh.advertise<std_msgs::Int32>("right_ticks", 10);
     leftPub = nh.advertise<std_msgs::Int32>("left_ticks", 10);
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
     int16_t *pGoalRPMSpeed;
 
