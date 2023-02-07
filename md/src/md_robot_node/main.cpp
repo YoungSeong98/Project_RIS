@@ -2,7 +2,6 @@
 // main.cpp
 // Publisher, Subscrive action added
 #include <geometry_msgs/Twist.h>
-
 #include "md_robot_node/global.hpp"
 #include "md_robot_node/main.hpp"
 #include "md_robot_node/com.hpp"
@@ -10,18 +9,7 @@
 #include <ros/ros.h>
 
 ////////////////////////////////////////////////////////
-//changed by sehun
-
-#include <nav_msgs/Odometry.h>
-#include <geometry_msgs/PoseStamped.h>
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2_ros/transform_broadcaster.h>
-#include <cmath>
-////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////
-//changed by sehun
-
+// Tick Value Publisher
 ros::Publisher rightPub;
 ros::Publisher leftPub;
 std_msgs::Int32 right_ticks;
@@ -658,39 +646,14 @@ void PubRobotPose(void)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
-//changed by sehun
-
+// Publish Tick Data
 void PublishTicks(void)
 {
-    //int32_t ticks_left;
-    //int32_t ticks_right;
-
-    //int32_t encoder_minimum = -2147483648;
-    //int32_t encoder_maximum = 2147483647;
-    
-    //std_msgs::Int32 right_wheel_tick_count;
-    //ros::Publisher rightPub("right_ticks", &right_wheel_tick_count);
- 
-    //std_msgs::Int32 left_wheel_tick_count;
-    //ros::Publisher leftPub("left_ticks", &left_wheel_tick_count);
-
-
-    //ros::NodeHandle nh1;
-
-    //nh1.initNode();
-    //nh1.advertise(rightPub);
-    //nh1.advertise(leftPub);
-    //ticks_left = pData->mtr_pos_id1;
-    //ticks_right = pData->mtr_pos_id2;
-
     rightPub.publish(right_ticks);
     leftPub.publish(left_ticks);
 //if 0
     //ROS_INFO("\r\n");
     //ROS_INFO("mtr ticks: %d : %d", ticks_left, ticks_right);
 //endif
-
 }
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
