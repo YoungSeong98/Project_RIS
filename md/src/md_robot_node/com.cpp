@@ -334,11 +334,8 @@ int ReceiveDataFromController(void) //Analyze the communication data
         if(byBufNumber > sizeof(byRcvBuf)) {
             byBufNumber = sizeof(byRcvBuf);
         }
-
         ser.read(byRcvBuf, byBufNumber);
         AnalyzeReceivedData(byRcvBuf, byBufNumber);
     }
-
     return 1;
 }
-
