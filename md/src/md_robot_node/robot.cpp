@@ -4,7 +4,6 @@
 #include "md_robot_node/com.hpp"
 #include "md/Pose.h"
 
-
 #define VELOCITY_CONSTANT_VALUE         9.5492743       // 이동속도(m/min), v = 바퀴 둘레의 길이 x RPM
                                                         // 이동속도(m/sec), v = (2 x 바퀴 반지름 x (pi / 60) x RPM)
                                                         // 0.10472 = (2 x pi / 60)
@@ -17,18 +16,13 @@
 #define LEFT           	  0      // Swing direction
 #define RIGHT             1
 
-
-
-
-
 static double robot_old_x;
 static double robot_old_y;
 static double robot_old_theta;
 
 extern md::Pose robot_pose;
 ////////////////////////////////////////////////////////
-//changed by sehun
-
+// Bring meesages from main.cpp to use to tick variable
 extern std_msgs::Int32 right_ticks;
 extern std_msgs::Int32 left_ticks;
 ////////////////////////////////////////////////////////
@@ -389,8 +383,7 @@ void CalRobotPose_old(PID_PNT_MAIN_DATA_t *pData)
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-//changed by sehun
-
+// Calculate Tick Values
 void CalTicks(PID_PNT_MAIN_DATA_t *pData)
 {
     int32_t ticks_left;
@@ -423,8 +416,5 @@ void CalTicks(PID_PNT_MAIN_DATA_t *pData)
     ROS_INFO("\r\n");
     ROS_INFO("mtr ticks: %d : %d", ticks_left, ticks_right);
 #endif
-
 }
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
