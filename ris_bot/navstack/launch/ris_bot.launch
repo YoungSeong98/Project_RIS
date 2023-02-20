@@ -46,9 +46,6 @@
     
 	<!-- Initial Pose and Goal Publisher -->
 	<!-- Publish: /initialpose, /move_base_simple/goal -->
-	<!-- Launch Rviz -->
-	<node pkg="rviz" type="rviz" name="rviz">
-	</node> 
 
 	<!-- Subscribe: /initialpose, /move_base_simple/goal -->
 	<!-- Publish: /initial_2d, /goal_2d --> 
