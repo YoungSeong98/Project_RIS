@@ -12,8 +12,8 @@
 
 	<!-- Initial Pose and Goal Publisher -->
 	<!-- Publish: /initialpose, /move_base_simple/goal -->
-	<
-	<node pkg="rviz" type="rviz" name="rviz" args="-d /home/lim/rviz_config/rviz/navigation.rviz">
+	<!-- Launch Rviz -->
+	<node pkg="rviz" type="rviz" name="rviz" args="-d /home/lim/catkin_ws/src/ris_bot/rviz/navigation.rviz">
 	</node>
 	
 	<!-- Wheel Odometry Publisher -->
