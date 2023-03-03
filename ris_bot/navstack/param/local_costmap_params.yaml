@@ -1,19 +1,17 @@
 local_costmap:
-  update_frequency: 30.0
-  publish_frequency: 30.0
-  transform_tolerance: 0.2
-  static_map: false    # costmap을 초기화 할 때 static map 사용 여부를 결정
-  resolution: 0.1
-  inflation_radius: 0.1
+  global_frame: odom
+  robot_base_frame: base_footprint
 
-  plugins:
-    - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
-
-  obstacle_layer:
-    observation_sources: laser_scan_sensor
-    laser_scan_sensor: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
-  
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 2.0
+ 
 # Rolling Window Related Parameters  
   rolling_window: true
-  width: 1.0
-  height: 1.0
+  resolution: 0.02
+  width: 4.0
+  height: 4.0
+  
+  plugins:
+    - {name: obstacle_layer, type: "costmap_2d::VoxelLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
