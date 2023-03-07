@@ -1,0 +1,6 @@
+image: /home/lim/catkin_ws/maps/314c.pgm
+resolution: 0.020000
+origin: [-5.915417, -8.780000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
