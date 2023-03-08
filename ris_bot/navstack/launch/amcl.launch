@@ -13,7 +13,7 @@
     <param name="base_frame_id" value="base_footprint"/>
         
     <!-- Use these paramters if you want to set robot`s initial pose manually -->
-    <!--<param name="initial_pose_x" value="0"/>	  <!-- Set robot`s initial x pose -->-->
+    <!--<param name="initial_pose_x" value="0"/>	<!-- Set robot`s initial x pose -->-->
     <!--<param name="initial_pose_y" value="0"/>    <!-- Set robot`s initial y pose -->-->
     <!--<param name="initial_pose_a" value="0"/>    <!-- Set robot`s initial z pose -->-->
         
